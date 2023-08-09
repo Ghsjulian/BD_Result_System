@@ -44,7 +44,7 @@
           <a href="#"><i class="bi bi-person-plus"></i>All Users</a>
         </li>
         <li>
-          <a href="add-user.php"><i class="bi bi-person-plus"></i>Add Users</a>
+          <a href="add-user.html"><i class="bi bi-person-plus"></i>Add Users</a>
         </li>
         <li>
           <a href="marksheet.html"><i class="bi bi-pen"></i>MarkSheets</a>
@@ -54,53 +54,3 @@
         </li>
       </div>
     </header>
-    <div class="hero">
-      <div class="section">
-        <div class="contact">
-          <h2>Contact Us</h2>
-          <p id="txt">
-            You can always and anytime contact with me . Here I've dropped my
-            contact details so that you can able contact with me . You can also
-            find me on social medias . After contacting with me you'll know more
-            about myself . Thank You !
-          </p>
-          <div class="contact-form">
-            <div id="message"></div>
-            <form id="contact-form">
-              <input
-                type="email"
-                placeholder="Enter Email"
-                id="email"
-                name="email"
-                accept="email"
-                autocomplete="on"
-              />
-              <input
-                type="text"
-                placeholder="Write Subject"
-                id="subject"
-                name="subject"
-              />
-              <textarea
-                type="text"
-                placeholder="Write Message"
-                id="msg"
-                name="message"
-                value=""
-              ></textarea>
-              <button
-                type="button"
-                id="btn"
-                name="contact-btn"
-                onclick="Contact()"
-              >
-                Contact
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="js/index.js"></script>
-  </body>
-</html>
