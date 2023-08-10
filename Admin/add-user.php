@@ -18,7 +18,7 @@ if (isset($session['user_role'])) {
                 <option value="Humanity">Humanity</option>
                 <option value="Commerce">Commerce</option>
                 <option value="Others">Others</option>
-              </select>
+                       </select>
               <input
               type="text"
               placeholder="Enter Student Full Name"
@@ -38,21 +38,33 @@ if (isset($session['user_role'])) {
           name="reg_number"
           />
         <input
-        type="password"
-        placeholder="Set Student Password"
-        id="password"
-        name="password"
+        type="text"
+        placeholder="Enter Student Religion"
+        id="religion"
+        name="religion"
         />
-      <button
-        onclick="AddStudent()"
-        type="button"
-        id="btn"
-        name="contact-btn"
-        >
-        Add Student
-      </button>
-    </form>
-  </div>
+        <input
+        type="text"
+        placeholder="Enter Optional Subject"
+        id="optional_sub"
+        name="optional_sub"
+        />
+      <input
+      type="password"
+      placeholder="Set Student Password"
+      id="password"
+      name="password"
+      />
+    <button
+      onclick="AddStudent()"
+      type="button"
+      id="btn"
+      name="contact-btn"
+      >
+      Add Student
+    </button>
+  </form>
+</div>
 </div>
 </div>
 </div>
@@ -61,6 +73,6 @@ if (isset($session['user_role'])) {
 </html>
 <?php
 } else {
-  include_once('login.php');
+include_once('login.php');
 }
 ?>

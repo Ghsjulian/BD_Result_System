@@ -734,3 +734,9 @@ li #indexValue {
   border-radius: 8px;
   transition: 0.3s ease-in;
 }
+
+.contact-form li {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}

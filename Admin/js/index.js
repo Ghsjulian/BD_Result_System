@@ -345,7 +345,7 @@ function AddStudent() {
     formData.append("add_student", "Add New Student");
     formData.append("group", group);
     fetch(
-      "http://localhost:8000/Bd_Result/API/server/functions/addstudent.php",
+      "http://localhost:8000/Bd_Result/API/server/functions/addStudent.php",
       {
         method: "POST",
         body: formData,
@@ -356,7 +356,7 @@ function AddStudent() {
       })
       .then((data) => {
         if (data.status) {
-          window.location.href = "allUsers.php";
+          window.location.href = "http://localhost:8000/Bd_Result/Admin/";
         } else {
           alert("Something Error");
         }

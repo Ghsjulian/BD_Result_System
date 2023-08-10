@@ -25,7 +25,7 @@
         <a href="#">Add User</a>
         <a href="#">Notification</a>
         <a href="#">MarkSheets</a>
-        <a href="all-users.php">All Users</a>
+        <a href="#">All Users</a>
       </nav>
       <span id="mobile-menu" onclick="OpenMenu()"
         ><i class="bi bi-list"></i
@@ -41,10 +41,10 @@
           <span id="budget">3</span>
         </li>
         <li>
-          <a href="all-users.php"><i class="bi bi-person-plus"></i>All Users</a>
+          <a href="#"><i class="bi bi-person-plus"></i>All Users</a>
         </li>
         <li>
-          <a href="add-user.html"><i class="bi bi-person-plus"></i>Add Users</a>
+          <a href="add-user.php"><i class="bi bi-person-plus"></i>Add Users</a>
         </li>
         <li>
           <a href="marksheet.html"><i class="bi bi-pen"></i>MarkSheets</a>
@@ -54,3 +54,14 @@
         </li>
       </div>
     </header>
+    <div class="all-user">
+      <div class="container">
+        <h1>All Students</h1>
+        <div class="task-area"></div>
+        <div id="err-id"></div>
+      </div>
+    </div>
+    <script src="js/student.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

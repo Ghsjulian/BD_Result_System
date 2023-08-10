@@ -18,8 +18,11 @@ if ($requestMethod == "POST") {
   $student_name = $_POST['student_name'];
   $group = $_POST['group'];
   $roll = $_POST['roll_number'];
+  $optional_sub = $_POST['optional_sub'];
+  $religion = $_POST['religion'];
   $registration = $_POST['reg_number'];
   $password = $_POST['password'];
+  $enc_password = sha1($password);
   /*
   *
   * MAKING SQL QUERY
@@ -33,7 +36,8 @@ if ($requestMethod == "POST") {
     ));
     exit();
   } else {
-    $sql = "INSERT INTO `students`(`student_name`, `rool`, `registration`, `password`,`group`) VALUES ('$student_name','$roll','$registration','$password','$group')";
+    /* $sql = "INSERT INTO `students`(`student_name`, `rool`, `registration`, `password`,`group`) VALUES ('$student_name','$roll','$registration','$enc_password','$group')";*/
+    $sql = "INSERT INTO `students`(`student_name`, `rool`, `registration`, `password`, `group`, `optional_subject`, `religion`) VALUES('$student_name','$roll','$registration','$enc_password','$group','$optional_sub','$religion')";
     $query = $__DB__->__INSERT__($sql);
     if ($query) {
       echo json_encode(array(
@@ -56,8 +60,8 @@ if ($requestMethod == "POST") {
 *
 *
 
-INSERT INTO `loan_history`(`id`, `user_id`, `user_avtar`, `amount`, `notification`, `time`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
-
+INSERT INTO `students`(`student_id`, `student_name`, `rool`, `registration`, `password`, `group`, `optional_subject`, `religion`) VALUES
+('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]')
 *
 *
 *
@@ -66,9 +70,26 @@ INSERT INTO `loan_history`(`id`, `user_id`, `user_avtar`, `amount`, `notificatio
 
 
 
+if (isset($_GET['fetch_student'])) {
+  $sql = "SELECT * FROM students";
+  $query = $__DB__->__SELECT__($sql);
+  if ($query) {
+    echo json_encode($query);
+  } else {
+    echo json_encode(array(
+      "status"=>false 
+      ));
+  }
+}
 
-
-
+if (isset($_GET['student_id'])) {
+  $id = $_GET['student_id'];
+  $sql = "SELECT * FROM students WHERE student_id='$id'";
+  $query = $__DB__->__SELECT__($sql);
+  if ($query) {
+    echo json_encode($query[0]);
+  }
+}
 
 
 ?>

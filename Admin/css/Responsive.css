@@ -133,6 +133,11 @@
     margin: 0 auto;
     left: 25%;
   }
+  .user-list {
+  margin: auto;
+  align-items: center;
+  width: 50%;
+}
 }
 
 /*MEDIUM SCREEN*/

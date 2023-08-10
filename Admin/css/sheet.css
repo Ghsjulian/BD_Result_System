@@ -199,3 +199,45 @@ body {
   padding-bottom: 4px;
   border-radius: 4px;
 }
+#add-marksheet {
+  outline: none;
+  border :none;
+  background: #008bea;
+  color :#fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  display :inline-block;
+  padding :.5em 1em;
+  transition :.3s ease-in;
+  border-radius: 8px ;
+  margin :1rem auto ;
+}
+
+table tbody input {
+  outline :none;
+  border :.1px solid #0078e2 ;
+  border-radius: 8px;
+  padding:.5em .7em;
+  width:90%;
+}
+table tbody input::placeholder {
+  color :#0078e2;
+  font-size: 14px;
+  font-weight: 300;
+}
+table tbody #select_bank {
+  outline :none;
+  background: #fff;
+  border :.1px solid #0078e2 ;
+  color:#0078e2;
+  border-radius: 8px;
+  padding:.5em .7em;
+  width:90%;
+}
+table tbody #select_bank option {
+  background: #fff;
+}
+#add-marksheet:hover {
+  background: linear-gradient(#00ca9b,#66d700,#4eff5f);
+}
