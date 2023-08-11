@@ -25,57 +25,6 @@ function getAllvalues(check) {
   var year = ghs__("#year").value;
   var institute = ghs__("#institute").value;
   var result = ghs__("#result").value;
-  /*    SHEET VALUES   */
-  var bangla = ghs__("#bangla").value;
-  var english = ghs__("#english").value;
-  var bangladesh_history = ghs__("#bangladesh_history").value;
-  var hindu = ghs__("#hindu").value;
-  var islam = ghs__("#islam").value;
-  var christian = ghs__("#christian").value;
-  var ict = ghs__("#ict").value;
-  var math = ghs__("#math").value;
-  var physics = ghs__("#physics").value;
-  var chemistry = ghs__("#chemistry").value;
-  var biology = ghs__("#biology").value;
-  var agriculture = ghs__("#agriculture").value;
-  var phisical = ghs__("#phisical").value;
-  var carrier = ghs__("#carrier").value;
-
-  var global_study = ghs__("#global_study").value;
-  var history = ghs__("#history").value;
-  var economic = ghs__("#economics").value;
-  var geography = ghs__("#geography").value;
-  var science = ghs__("#science").value;
-  var finnance = ghs__("#finnance").value;
-  var accounting = ghs__("#accounting").value;
-  var business = ghs__("#business").value;
-
-  /*   PREPARED FOR SENDING INTO THE SERVER*/
-  formData.append("bangla", bangla);
-  formData.append("english", english);
-  formData.append("math", math);
-  formData.append("ict", ict);
-  formData.append("bangladesh_history", bangladesh_history);
-  formData.append("hindu", hindu);
-  formData.append("islam", islam);
-  formData.append("christian", christian);
-  formData.append("physics", physics);
-  formData.append("chemistry", chemistry);
-  formData.append("biology", biology);
-  formData.append("agriculture", agriculture);
-  formData.append("phisical", phisical);
-  formData.append("carrier", carrier);
-
-  formData.append("global_study", global_study);
-  formData.append("economic", economic);
-  formData.append("history", history);
-  formData.append("geography", geography);
-  formData.append("finnance", finnance);
-  formData.append("science", science);
-  formData.append("accounting", accounting);
-  formData.append("business", business);
-
-  /*    STUDENTS   INFORMATION*/
   formData.append("board", board);
   formData.append("father", father);
   formData.append("mother", mother);
@@ -89,7 +38,34 @@ function getAllvalues(check) {
   formData.append("birth", dob);
   formData.append("year", year);
   formData.append("exam_name", exam_name);
+  var bangla = ghs__("#bangla").value;
+  var english = ghs__("#english").value;
+  var ict = ghs__("#ict").value;
+  var math = ghs__("#math").value;
+  var agriculture = ghs__("#agriculture").value;
+  var phisical = ghs__("#phisical").value;
+  var carrier = ghs__("#carrier").value;
+  formData.append("bangla", bangla);
+  formData.append("english", english);
+  formData.append("math", math);
+  formData.append("ict", ict);
+  formData.append("agriculture", agriculture);
+  formData.append("phisical", phisical);
+  formData.append("carrier", carrier);
   if (check === "Science") {
+    /*    SHEET VALUES   */
+    var bangladesh_history = ghs__("#global_study").value;
+    var physics = ghs__("#physics").value;
+    var chemistry = ghs__("#chemistry").value;
+    var biology = ghs__("#biology").value;
+    /*   PREPARED FOR SENDING INTO THE SERVER*/
+    formData.append("physics", physics);
+    formData.append("chemistry", chemistry);
+    formData.append("biology", biology);
+    formData.append("global_study", global_study);
+
+    /*    STUDENTS   INFORMATION**/
+
     //console.log("It's Science")
     /*
      *
@@ -108,11 +84,71 @@ function getAllvalues(check) {
       .then((data) => {
         console.log(data);
       });
-  } else if (check === "Humanity") {
-    /*    SHEET VALUES   */
-  } else if (check === "Commerce") {
-  } else {
-    console.log("It's Error ");
+  } else if (group === "Humanity") {
+    var history = ghs__("#bangladesh_history").value;
+    var economic = ghs__("#economics").value;
+    var geography = ghs__("#geography").value;
+    var science = ghs__("#science").value;
+    /*   PREPARED FOR SENDING INTO THE SERVER*/
+    formData.append("history", history);
+    formData.append("economic", economic);
+    formData.append("geography", geography);
+    formData.append("science", science);
+
+    /*    STUDENTS   INFORMATION**/
+
+    //console.log("It's Science")
+    /*
+     *
+     *
+     *  HERE I'LL USE AJAX
+     *
+     *
+     */
+    fetch("http://localhost:8000/Bd_Result/API/server/functions/sheet.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => {
+        return res.text();
+      })
+      .then((data) => {
+        console.log(data);
+      });
+  } else if (group === "Commerce") {
+    var bd_history = ghs__("#bangladesh_history").value;
+    var finnance = ghs__("#finnance").value;
+    var business = ghs__("#business").value;
+    var accounting = ghs__("#accounting").value;
+    var cm_science = ghs__("#science").value;
+    var cm_geography = ghs__("#geography").value;
+    /*   PREPARED FOR SENDING INTO THE SERVER*/
+    formData.append("history", bd_history);
+    formData.append("business", business);
+    formData.append("cm_geography", cm_geography);
+    formData.append("cm_science", cm_science);
+    formData.append("accounting", accounting);
+
+    /*    STUDENTS   INFORMATION**/
+
+    //console.log("It's Science")
+    /*
+     *
+     *
+     *  HERE I'LL USE AJAX
+     *
+     *
+     */
+    fetch("http://localhost:8000/Bd_Result/API/server/functions/sheet.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => {
+        return res.text();
+      })
+      .then((data) => {
+        console.log(data);
+      });
   }
 }
 
@@ -129,7 +165,7 @@ function Fetchstudent() {
       ghs__("#name").textContent = data.student_name;
       ghs__("#group").textContent = data.group;
       if (data.group === "Science") {
-        if (data.religion === "Hinduism ") {
+        if (data.religion === "Hinduism") {
           religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
@@ -137,7 +173,7 @@ function Fetchstudent() {
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="hindu" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-        } else if (data.religion === "Humanity") {
+        } else if (data.religion === "Islam") {
           religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
@@ -145,7 +181,7 @@ function Fetchstudent() {
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="islam" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-        } else if (data.religion === "Christian ") {
+        } else if (data.religion === "Christian") {
           religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
@@ -186,18 +222,18 @@ function Fetchstudent() {
 ${religion}
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">136</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND HISTORY</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="history" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">BIOLOGY</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="biology" type="text" placeholder="Enter Grade"></td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">137</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE">BANGLADESH AND ECONOMICS</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE"><input id="economics" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#EEEEEE">CHEMISTRY</td>
+<td align="left" valign="middle" bgcolor="#EEEEEE"><input id="chemistry" type="text" placeholder="Enter Grade"></td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">138</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">GEOGRAPHY OF WORLD</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="geography" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">PHYSICS</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="physics" type="text" placeholder="Enter Grade"></td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">154</td>
