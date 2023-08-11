@@ -9,59 +9,63 @@ ghs__("#add-marksheet").onclick = (e) => {
 
 function getAllvalues(check) {
   var formData = new FormData();
+  var group = ghs__("#group").textContent;
+  var board = ghs__("#board").value;
+  var father = ghs__("#father").value;
+  var mother = ghs__("#mother").value;
+  var type = ghs__("#type").value;
+
+  var gpa = ghs__("#gpa").value;
+  var name = ghs__("#name").textContent;
+  var roll = ghs__("#roll").textContent;
+  var dob = ghs__("#dob").value;
+  var select = ghs__("#select_bank");
+  var Selectvalue = select.value;
+  var exam_name = select.options[select.selectedIndex].text;
+  var year = ghs__("#year").value;
+  var institute = ghs__("#institute").value;
+  var result = ghs__("#result").value;
+  /*    SHEET VALUES   */
+  var bangla = ghs__("#bangla").value;
+  var english = ghs__("#english").value;
+  var bangladesh_history = ghs__("#bangladesh_history").value;
+  var hindu = ghs__("#hindu").value;
+  var ict = ghs__("#ict").value;
+  var math = ghs__("#math").value;
+  var physics = ghs__("#physics").value;
+  var chemistry = ghs__("#chemistry").value;
+  var biology = ghs__("#biology").value;
+  var agriculture = ghs__("#agriculture").value;
+  var phisical = ghs__("#phisical").value;
+  var carrier = ghs__("#carrier").value;
+  /*   PREPARED FOR SENDING INTO THE SERVER*/
+  formData.append("bangla", bangla);
+  formData.append("english", english);
+  formData.append("math", math);
+  formData.append("ict", ict);
+  formData.append("bangladesh_history", bangladesh_history);
+  formData.append("hindu", hindu);
+  formData.append("physics", physics);
+  formData.append("chemistry", chemistry);
+  formData.append("biology", biology);
+  formData.append("agriculture", agriculture);
+  formData.append("phisical", phisical);
+  formData.append("carrier", carrier);
+  /*    STUDENTS   INFORMATION*/
+  formData.append("board", board);
+  formData.append("father", father);
+  formData.append("mother", mother);
+  formData.append("type", type);
+  formData.append("result", result);
+  formData.append("roll", roll);
+  formData.append("group", group);
+  formData.append("gpa", gpa);
+  formData.append("name", name);
+  formData.append("institute", institute);
+  formData.append("birth", dob);
+  formData.append("year", year);
+  formData.append("exam_name", exam_name);
   if (check === "Science") {
-    var group = ghs__("#group").textContent;
-    var board = ghs__("#board").value;
-    var father = ghs__("#father").value;
-    var mother = ghs__("#mother").value;
-    var type = ghs__("#type").value;
-    var gpa = ghs__("#gpa").value;
-    var name = ghs__("#name").textContent;
-    var roll = ghs__("#roll").textContent;
-    var dob = ghs__("#dob").value;
-    var select = ghs__("#select_bank");
-    var Selectvalue = select.value;
-    var exam_name = select.options[select.selectedIndex].text;
-    var year = ghs__("#year").value;
-    var institute = ghs__("#institute").value;
-    var result = ghs__("#result").value;
-    /*    SHEET VALUES   */
-    var bangla = ghs__("#bangla").value;
-    var english = ghs__("#english").value;
-    var bangladesh_history = ghs__("#bangladesh_history").value;
-    var hindu = ghs__("#hindu").value;
-    var physics = ghs__("#physics").value;
-    var chemistry = ghs__("#chemistry").value;
-    var biology = ghs__("#biology").value;
-    var agriculture = ghs__("#agriculture").value;
-    var phisical = ghs__("#phisical").value;
-    var carrier = ghs__("#carrier").value;
-    /*   PREPARED FOR SENDING INTO THE SERVER*/
-    formData.append("bangla", bangla);
-    formData.append("english", english);
-    formData.append("math", math);
-    formData.append("bangladesh_history", bangladesh_history);
-    formData.append("hindu", hindu);
-    formData.append("physics", physics);
-    formData.append("chemistry", chemistry);
-    formData.append("biology", biology);
-    formData.append("agriculture", agriculture);
-    formData.append("phisical", phisical);
-    formData.append("carrier", carrier);
-    /*    STUDENTS   INFORMATION*/
-    formData.append("board", board);
-    formData.append("father", father);
-    formData.append("mother", mother);
-    formData.append("type", type);
-    formData.append("result", result);
-    formData.append("roll", roll);
-    formData.append("group", group);
-    formData.append("gpa", gpa);
-    formData.append("name", name);
-    formData.append("institute", institute);
-    formData.append("dob", dob);
-    formData.append("year", year);
-    formData.append("exam_name", exam_name);
     //console.log("It's Science")
     /*
      *
@@ -81,6 +85,7 @@ function getAllvalues(check) {
         console.log(data);
       });
   } else if (check === "Humanity") {
+    /*    SHEET VALUES   */
   } else if (check === "Commerce") {
   } else {
     console.log("It's Error ");
@@ -90,7 +95,7 @@ function getAllvalues(check) {
 function Fetchstudent() {
   var html, btn, religion;
   fetch(
-    `http://localhost:8000/Bd_Result/API/server/functions/addstudent.php?student_id=15`
+    `http://localhost:8000/Bd_Result/API/server/functions/addstudent.php?student_id=10`
   )
     .then((res) => {
       return res.json();
@@ -100,31 +105,31 @@ function Fetchstudent() {
       ghs__("#name").textContent = data.student_name;
       ghs__("#group").textContent = data.group;
       if (data.group === "Science") {
-if(data.religion==="Hinduism"){
-  religion = `
+        if (data.religion === "Hinduism ") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">HINDU RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="hindu" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-} else if(data.religion==="Humanity"){
-  religion = `
+        } else if (data.religion === "Humanity") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">ISLAM RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="islam" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-} else if(data.religion==="Christian"){
-  religion = `
+        } else if (data.religion === "Christian ") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">Christian RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="christian" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-}
+        }
         ghs__("#sheet_id").innerHTML = `
 <td align="center" valign="middle">
 <table width="100%" border="0" cellpadding="3" cellspacing="1" class="black12">
@@ -195,32 +200,31 @@ ${religion}
 </td>
         `;
       } else if (data.group === "Humanity") {
-if(data.religion==="Hinduism"){
-  religion = `
+        if (data.religion === "Hinduism") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">HINDU RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="hindu" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-} else if(data.religion==="Islam "){
-  religion = `
+        } else if (data.religion === "Islam ") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">ISLAM RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="islam" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-} else if(data.religion==="Christian"){
-  religion = `
+        } else if (data.religion === "Christian") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">Christian RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="christian" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-}
-
+        }
 
         ghs__("#sheet_id").innerHTML = `
 <td align="center" valign="middle">
@@ -292,32 +296,32 @@ ${religion}
 </td>
         `;
       } else if (data.group === "Commerce") {
-if(data.religion==="Hinduism"){
-  religion = `
+        if (data.religion === "Hinduism") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">HINDU RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="hindu" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-} else if(data.religion==="Islam "){
-  religion = `
+        } else if (data.religion === "Islam ") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">ISLAM RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="islam" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-} else if(data.religion==="Christian"){
-  religion = `
+        } else if (data.religion === "Christian") {
+          religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">Christian RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="christian" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-}
-ghs__("#sheet_id").innerHTML = `
+        }
+        ghs__("#sheet_id").innerHTML = `
 <td align="center" valign="middle">
 <table width="100%" border="0" cellpadding="3" cellspacing="1" class="black12">
 <tbody>
@@ -390,8 +394,7 @@ ${religion}
     });
 }
 
-
-window.onload=()=>{
- // var std_id = ghs__("#studentId").value;
-Fetchstudent();
-}
+window.onload = () => {
+  // var std_id = ghs__("#studentId").value;
+  Fetchstudent();
+};
