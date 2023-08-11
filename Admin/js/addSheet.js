@@ -30,6 +30,8 @@ function getAllvalues(check) {
   var english = ghs__("#english").value;
   var bangladesh_history = ghs__("#bangladesh_history").value;
   var hindu = ghs__("#hindu").value;
+  var islam = ghs__("#islam").value;
+  var christian = ghs__("#christian").value;
   var ict = ghs__("#ict").value;
   var math = ghs__("#math").value;
   var physics = ghs__("#physics").value;
@@ -38,6 +40,14 @@ function getAllvalues(check) {
   var agriculture = ghs__("#agriculture").value;
   var phisical = ghs__("#phisical").value;
   var carrier = ghs__("#carrier").value;
+
+  var global_study = ghs__("#global_study").value;
+  var history = ghs__("#history").value;
+  var economic = ghs__("#economics").value;
+  var geography = ghs__("#geography").value;
+  var science = ghs__("#science").value;
+  var finnance = ghs__("#finnance").value;
+
   /*   PREPARED FOR SENDING INTO THE SERVER*/
   formData.append("bangla", bangla);
   formData.append("english", english);
@@ -45,12 +55,22 @@ function getAllvalues(check) {
   formData.append("ict", ict);
   formData.append("bangladesh_history", bangladesh_history);
   formData.append("hindu", hindu);
+  formData.append("islam", islam);
+  formData.append("christian", christian);
   formData.append("physics", physics);
   formData.append("chemistry", chemistry);
   formData.append("biology", biology);
   formData.append("agriculture", agriculture);
   formData.append("phisical", phisical);
   formData.append("carrier", carrier);
+
+  formData.append("global_study", global_study);
+  formData.append("economic", economic);
+  formData.append("history", history);
+  formData.append("geography", geography);
+  formData.append("finnance", finnance);
+  formData.append("science", science);
+
   /*    STUDENTS   INFORMATION*/
   formData.append("board", board);
   formData.append("father", father);
@@ -95,7 +115,7 @@ function getAllvalues(check) {
 function Fetchstudent() {
   var html, btn, religion;
   fetch(
-    `http://localhost:8000/Bd_Result/API/server/functions/addstudent.php?student_id=10`
+    `http://localhost:8000/Bd_Result/API/server/functions/addstudent.php?student_id=15`
   )
     .then((res) => {
       return res.json();
@@ -157,23 +177,23 @@ function Fetchstudent() {
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">150</td>
 <td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND GLOBAL STUDIES</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="bangladesh_history" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="global_study" type="text" placeholder="Enter Grade"></td>
 </tr>
 ${religion}
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">136</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">PHYSICS</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="physics" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND HISTORY</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="history" type="text" placeholder="Enter Grade"></td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">137</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE">CHEMISTRY</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE"><input id="chemistry" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#EEEEEE">BANGLADESH AND ECONOMICS</td>
+<td align="left" valign="middle" bgcolor="#EEEEEE"><input id="economics" type="text" placeholder="Enter Grade"></td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">138</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">BIOLOGY</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="biology" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">GEOGRAPHY OF WORLD</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="geography" type="text" placeholder="Enter Grade"></td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">154</td>
@@ -200,7 +220,7 @@ ${religion}
 </td>
         `;
       } else if (data.group === "Humanity") {
-        if (data.religion === "Hinduism") {
+        if (data.religion === "Hinduism ") {
           religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
@@ -216,7 +236,7 @@ ${religion}
 <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="islam" type="text" placeholder="Enter Grade"></td>
 </tr>
   `;
-        } else if (data.religion === "Christian") {
+        } else if (data.religion === "Christian ") {
           religion = `
   <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>

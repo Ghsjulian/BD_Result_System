@@ -32,6 +32,8 @@ if ($requestMethod == "POST") {
   $english = $_POST['english'];
   $bangladesh_history = $_POST['bangladesh_history'];
   $hindu = $_POST['hindu'];
+  $islam = $_POST['islam'];
+  $christian = $_POST['christian'];
   $math = $_POST['math'];
   $ict = $_POST['ict'];
   $physics = $_POST['physics'];
@@ -40,9 +42,12 @@ if ($requestMethod == "POST") {
   $agriculture = $_POST['agriculture'];
   $phisical = $_POST['phisical'];
   $carrier = $_POST['carrier'];
+  $finnance = $_POST['finnance'];
+  $science = $_POST['science'];
   /*   PREPARED FOR SENDING INTO THE SERVER*/
   if ($group == "Science") {
     $sql = "INSERT INTO `science`(`student_id`, `bangla`, `english`, `physics`, `chemistry`, `bd_history`, `ict`, `mathematics`, `higher_math`, `agreeculture`, `biology`,`islam_education`, `hindu_education`, `christian_education`, `physical_education`, `career_education`, `history`)VALUES('$bangla','$english','$physics','$chemistry','$bangladesh_history','$ict','$math','','$agriculture','$biology','','$hindu','','','$phisical','$carrier','')";
+    /*    ADDED THE STUDENTS INFO     */
     $info = "INSERT INTO `marksheet`(`student_name`, `roll`, `group`, `year`, `result`, `birth`, `gpa`, `exam_name`, `institute`, `father`, `mother`,`board`)VALUES('$name','$roll','$group','$year','$result','$dob','$gpa','$exam_name','$institute','$father','$mother')";
     echo $sql."\n\n".$info; exit();
     /* $query = $__DB__->__INSERT__($sql);
