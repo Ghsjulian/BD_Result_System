@@ -23,11 +23,11 @@ function getAllvalues(check) {
   var Selectvalue = select.value;
   var exam_name = select.options[select.selectedIndex].text;
   var year = ghs__("#year").value;
-  var hiddenId = ghs__("#hidden-id").value;
+  var ID = ghs__("#hidden-id").value;
   var institute = ghs__("#institute").value;
   var result = ghs__("#result").value;
   formData.append("board", board);
-  formData.append("ID", hiddenId);
+  formData.append("ID", ID);
   formData.append("father", father);
   formData.append("mother", mother);
   formData.append("type", type);

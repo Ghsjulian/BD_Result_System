@@ -32,7 +32,7 @@ if ($requestMethod == "POST") {
   $bangladesh_history = $_POST['global_study'];
   $math = $_POST['math'];
   $ict = $_POST['ict'];
-  $ID = $_POST['hiddenId'];
+  $ID = $_POST['ID'];
   $physics = $_POST['physics'];
   $chemistry = $_POST['chemistry'];
   $biology = $_POST['biology'];
@@ -52,6 +52,7 @@ if ($requestMethod == "POST") {
   $physical = $_POST['phisical'];
   $accounting = $_POST['accounting'];
   $history = $_POST['history'];
+  $ok = "YES";
   /*   PREPARED FOR SENDING INTO THE SERVER*/
   $sql = "INSERT INTO `subjects`(`student_id`, `student_name`, `bangla`, `english`, `math`, `ict`, `global_study`, `biology`, `chemistry`, `physics`, `hindu_edu`, `islam_edu`,
   `christian_edu`, `history`, `agriculture`, `economics`, `geography`, `science`, `accounting`, `finnance`, `geography_world`, `business`, `carrier_edu`,
@@ -62,7 +63,7 @@ if ($requestMethod == "POST") {
   $query = $__DB__->__INSERT__($sql);
   if ($query) {
     if ($__DB__->__INSERT__($info)) {
-      $update = "UPDATE `students` SET `marksheet`='YES' WHERE student_id='$ID'";
+      $update = "UPDATE `students` SET `marksheet`='$ok' WHERE `student_id`='$ID'";
       if ($__DB__->__INSERT__($update)) {
         echo "Inserted";
       }
@@ -89,7 +90,7 @@ if ($requestMethod == "POST") {
 
 
 
-if ($group == "Commerce") {
+if ($grouptggc == "Commerce") {
   $sql = "INSERT INTO `commerce`(`sub_id`, `student_name`, `sub_code`, `bangla`, `english`, `math`, `general_science`, `finnance`, `business_ent`, `ict`, `islam_edu`, `agriculture`,
     `hindu`, `christian`) VALUES
     ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]','[value-12]','[value-13]','[value-14]')";
@@ -100,7 +101,7 @@ if ($group == "Commerce") {
   * MAKING SQL QUERY
   *
   */
-if ($_POST['group4'] == "Humanity") {
+if ($_POST['grouphcc4'] == "Humanity") {
   $group = $_POST['group'];
   $board = $_POST['board'];
   $father = $_POST['father'];
