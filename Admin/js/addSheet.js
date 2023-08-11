@@ -47,6 +47,8 @@ function getAllvalues(check) {
   var geography = ghs__("#geography").value;
   var science = ghs__("#science").value;
   var finnance = ghs__("#finnance").value;
+  var accounting = ghs__("#accounting").value;
+  var business = ghs__("#business").value;
 
   /*   PREPARED FOR SENDING INTO THE SERVER*/
   formData.append("bangla", bangla);
@@ -70,6 +72,8 @@ function getAllvalues(check) {
   formData.append("geography", geography);
   formData.append("finnance", finnance);
   formData.append("science", science);
+  formData.append("accounting", accounting);
+  formData.append("business", business);
 
   /*    STUDENTS   INFORMATION*/
   formData.append("board", board);
@@ -367,8 +371,8 @@ ${religion}
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">150</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND HISTORY</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="bangladesh_history" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">ACCOUNTING</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="accounting" type="text" placeholder="Enter Grade"></td>
 </tr>
 ${religion}
 <tr>
@@ -383,8 +387,8 @@ ${religion}
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">138</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">GENERAL SCIENCE</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="science" type="text" placeholder="Enter Grade"></td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">BUSINESS ENT</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4"><input id="business" type="text" placeholder="Enter Grade"></td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">154</td>

@@ -16,7 +16,7 @@ function Allstudent() {
     .then((data) => {
       if (data.length > 0) {
         for (var i = 0; i < data.length; i++) {
-          if (data[i].marksheet == 1) {
+          if (data[i].marksheet ==="YES") {
             btn = `<button id="sheet"><a href="#"><i class="bi bi-check-circle"></i></a></button>`;
           } else {
             btn = `<button id="sheet"><a href="add-marksheet.html"><i class="bi bi-book"></i></a></button>`;
