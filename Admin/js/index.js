@@ -382,3 +382,99 @@ function AddStudent() {
     __ghs("#message").textContent = "";
   }, 3000);
 }
+
+function EditStudent(id) {
+  var select = ghs__("#select_bank");
+  var Selectvalue = select.value;
+  var group = select.options[select.selectedIndex].text;
+  var student_name = __ghs("#student_name").value;
+  var roll = __ghs("#roll_number").value;
+  var registration = __ghs("#reg_number").value;
+  var password = __ghs("#password").value;
+  /*
+   *
+   * Checking Valuess
+   *
+   */
+  if (group === "Chose A Group") {
+    __ghs("#message").classList.add("error");
+    __ghs("#message").style.display = "block";
+    __ghs("#message").textContent = "Select a group please!";
+  } else if (student_name === "") {
+    __ghs("#message").classList.add("error");
+    __ghs("#message").style.display = "block";
+    __ghs("#message").textContent = "Enter Student Name!";
+  } else if (roll === "") {
+    __ghs("#message").classList.add("error");
+    __ghs("#message").style.display = "block";
+    __ghs("#message").textContent = "Enter Student Roll !";
+  } else if (registration === "") {
+    __ghs("#message").classList.add("error");
+    __ghs("#message").style.display = "block";
+    __ghs("#message").textContent = "Enter Registration Please";
+  } else if (password === "") {
+    __ghs("#message").classList.add("error");
+    __ghs("#message").style.display = "block";
+    __ghs("#message").textContent = "Please Set A Password !";
+  } else {
+    var formData = new FormData(__ghs("#application_form"));
+    formData.append("add_student", "Add New Student");
+    formData.append("group", group);
+    formData.append("id", id);
+    fetch(
+      "http://localhost:8000/Bd_Result/API/server/functions/editStudent.php",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data.status) {
+          window.location.href = "http://localhost:8000/Bd_Result/Admin/";
+        } else {
+          alert("Something Error");
+        }
+        
+        //   console.log(data);
+        /*
+        if (data.status) {
+          __ghs("#message").classList.add("success");
+          __ghs("#message").style.display = "block";
+          __ghs("#application_form").reset();
+          __ghs("#message").textContent = data.message;
+          window.location.href = "http://localhost:8000/Bank/loan-history";
+        } else {
+          __ghs("#application_form").reset();
+          __ghs("#message").classList.add("error");
+          __ghs("#message").style.display = "block";
+          __ghs("#message").textContent = data.message;
+        }
+        */
+      });
+  }
+  setTimeout(() => {
+    __ghs("#message").classList.remove("error");
+    __ghs("#message").textContent = "";
+  }, 3000);
+}
+
+window.onload = () => {
+  var id = ghs__("#hidden-id").value;
+  fetch(
+    `http://localhost:8000/Bd_Result/API/server/functions/addStudent.php?student_id=${id}`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      __ghs("#student_name").value = data.student_name;
+      __ghs("#roll_number").value = data.rool;
+      __ghs("#reg_number").value = data.registration;
+      //__ghs("#password").value = data.password;
+      __ghs("#religion").value = data.religion;
+      __ghs("#optional_sub").value = data.optional_subject;
+    });
+};

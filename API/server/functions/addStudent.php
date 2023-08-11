@@ -18,6 +18,7 @@ if ($requestMethod == "POST") {
   $student_name = $_POST['student_name'];
   $group = $_POST['group'];
   $roll = $_POST['roll_number'];
+  $ein_number = $_POST['ein_number'];
   $optional_sub = $_POST['optional_sub'];
   $religion = $_POST['religion'];
   $registration = $_POST['reg_number'];
@@ -37,7 +38,8 @@ if ($requestMethod == "POST") {
     exit();
   } else {
     /* $sql = "INSERT INTO `students`(`student_name`, `rool`, `registration`, `password`,`group`) VALUES ('$student_name','$roll','$registration','$enc_password','$group')";*/
-    $sql = "INSERT INTO `students`(`student_name`, `rool`, `registration`, `password`, `group`, `optional_subject`, `religion`) VALUES('$student_name','$roll','$registration','$enc_password','$group','$optional_sub','$religion')";
+    $sql = "INSERT INTO `students`(`student_name`, `rool`, `registration`, `password`, `group`, `optional_subject`, `religion`,`ein`)
+    VALUES('$student_name','$roll','$registration','$enc_password','$group','$optional_sub','$religion','$ein_number')";
     $query = $__DB__->__INSERT__($sql);
     if ($query) {
       echo json_encode(array(
@@ -47,6 +49,10 @@ if ($requestMethod == "POST") {
     }
   }
 }
+
+
+
+
 
 
 
@@ -77,8 +83,8 @@ if (isset($_GET['fetch_student'])) {
     echo json_encode($query);
   } else {
     echo json_encode(array(
-      "status"=>false 
-      ));
+      "status" => false
+    ));
   }
 }
 

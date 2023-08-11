@@ -1,5 +1,6 @@
 <?php
 session_start();
+$id = $_GET['std_id'];
 $session = $_SESSION['admin'];
 if (isset($session['user_role'])) {
   include_once('header.php');
@@ -8,7 +9,7 @@ if (isset($session['user_role'])) {
     <div class="hero">
       <div class="section">
         <div class="contact">
-          <h2>Add A New Student</h2>
+          <h2>Edit Student</h2>
           <div class="contact-form">
             <div id="message"></div>
             <form id="application_form">
@@ -18,7 +19,7 @@ if (isset($session['user_role'])) {
                 <option value="Humanity">Humanity</option>
                 <option value="Commerce">Commerce</option>
                 <option value="Others">Others</option>
-                       </select>
+              </select>
               <input
               type="text"
               placeholder="Enter Student Full Name"
@@ -30,12 +31,6 @@ if (isset($session['user_role'])) {
             placeholder="Enter Roll Number"
             id="roll_number"
             name="roll_number"
-            />
-             <input
-            type="number"
-            placeholder="Enter EIN Number"
-            id="ein_number"
-            name="ein_number"
             />
           <input
           type="number"
@@ -49,27 +44,28 @@ if (isset($session['user_role'])) {
         id="religion"
         name="religion"
         />
-        <input
-        type="text"
-        placeholder="Enter Optional Subject"
-        id="optional_sub"
-        name="optional_sub"
-        />
       <input
-      type="password"
-      placeholder="Set Student Password"
-      id="password"
-      name="password"
+      type="text"
+      placeholder="Enter Optional Subject"
+      id="optional_sub"
+      name="optional_sub"
       />
-    <button
-      onclick="AddStudent()"
-      type="button"
-      id="btn"
-      name="contact-btn"
-      >
-      Add Student
-    </button>
-  </form>
+    <input
+    type="password"
+    placeholder="Set New Password"
+    id="password"
+    name="password"
+    />
+  <input type="text" id="hidden-id" value="<?php echo $id ?>" hidden="true">
+  <button
+    onclick="EditStudent('<?php echo $id ?>')"
+    type="button"
+    id="btn"
+    name="contact-btn"
+    >
+    Add Student
+  </button>
+</form>
 </div>
 </div>
 </div>
