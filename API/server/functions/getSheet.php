@@ -13,16 +13,30 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 if ($requestMethod == "POST") {
-  $group = $_POST['group'];
-  $board = $_POST['board'];
-  $father = $_POST['father'];
-  $mother = $_POST['mother'];
+  $ein = $_POST['ein'];
+  $roll = trim($_POST['roll']);
+  $reg = $_POST['regi'];
+  $password = trim($_POST['password']);
+  $enc_pass = sha1($password);
 
-$sql = "SELECT student_name,rool FROM students WHERE student_name='$student_name' AND rool='$roll'";
-echo $sql; 
-  /*if ($__DB__->__LOGIN__($select)) {
-
-}*/
+  $sql = "SELECT rool, password FROM students WHERE rool='$roll' AND password='$enc_pass'";
+  if ($__DB__->__LOGIN__($sql)) {
+    $sheet = "SELECT * FROM marksheet WHERE roll='$roll'";
+    $query = $__DB__->SelectSingle($sheet);
+    if ($query) {
+      $subject = "SELECT * FROM subjects WHERE student_id='$roll'";
+      $getSub = $__DB__->SelectSingle($subject);
+      $student = "SELECT * FROM students WHERE rool='$roll'";
+      $getStudent = $__DB__->SelectSingle($student);
+      if ($getSub) {
+        echo json_encode(array(
+          "info" => $query,
+          "subject" => $getSub,
+          "student" => $getStudent
+        ));
+      }
+    }
+  }
 }
 
 ?>
