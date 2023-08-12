@@ -128,12 +128,16 @@ if (isset($session['user_role'])) {
                                           <td align="left" valign="middle" bgcolor="#EEEEEE">  <input id="year" name="year" type="number" placeholder="Enter Session Year"></td>
                                           <td align="left" valign="middle" bgcolor="#EEEEEE">Exam Name</td>
                                           <td align="left" valign="middle" bgcolor="#EEEEEE">
-                                            <select id="select_bank">
-                                              <option>Chose Exam</option>
-                                              <option value="Science">Science</option>
-                                              <option value="Humanity">Humanity</option>
-                                              <option value="Commerce">Commerce</option>
-                                              <option value="Others">Others</option>
+                                            <select id="select_bank" name="exam" class="textfield05" id="exam" onchange="fd(this);">
+                                              <option value="SSC/Dakhil/Equivalent">SSC/Dakhil/Equivalent</option>
+                                              <option value="JSC/JDC">JSC/JDC</option>
+                                              <option value="SSC/Dakhil">SSC/Dakhil</option>
+                                              <option value="SSC(Vocational">SSC(Vocational)</option>
+                                              <option value="HSC/Alim">HSC/Alim</option>
+                                              <option value="HSC(Vocational)">HSC(Vocational)</option>
+                                              <option value="HSC(BM)">HSC(BM)</option>
+                                              <option value="Diploma in Commerce">Diploma in Commerce</option>
+                                              <option value="Diploma in Business Studies">Diploma in Business Studies</option>
                                             </select>
                                           </td>
                                         </tr>
@@ -167,78 +171,78 @@ if (isset($session['user_role'])) {
 
                                     <!--- ADDED DYNAMIC ----->
                                     <!---
-                                                                        <td align="center" valign="middle">
-                                                                        <table width="100%" border="0" cellpadding="3" cellspacing="1" class="black12">
-                                                                        <tbody>
-                                                                        <tr class="black12bold">
-                                                                        <td width="19%" align="left" valign="middle" bgcolor="#AFB7BE">Code</td>
-                                                                        <td width="66%" align="left" valign="middle" bgcolor="#AFB7BE">Subject</td>
-                                                                        <td width="15%" align="left" valign="middle" bgcolor="#AFB7BE">Grade</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">101</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">BANGLA</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="bangla" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">107</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">ENGLISH</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="english" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">109</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">MATHEMATICS</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="math" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">150</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND GLOBAL STUDIES</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="bangladesh_history" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">HINDU RELIGION AND MORAL EDUCATION</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="hindu" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">136</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">PHYSICS</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="physics" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">137</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">CHEMISTRY</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="chemistry" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">138</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">BIOLOGY</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="biology" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">154</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">INFORMATION AND COMMUNICATION TECHNOLOGY</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="ict" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">134</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">AGRICULTURE STUDIES</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="agriculture" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">147</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE">PHYSICAL EDUCATION, HEALTH & SPORTS</td>
-                                                                        <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="phisical" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">156</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4">CAREER EDUCATION</td>
-                                                                        <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="carrier" type="text" placeholder="Enter Grade"></td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                        </table>
-                                                                        </td>
-                                                                        --->
+                                                                                                            <td align="center" valign="middle">
+                                                                                                            <table width="100%" border="0" cellpadding="3" cellspacing="1" class="black12">
+                                                                                                            <tbody>
+                                                                                                            <tr class="black12bold">
+                                                                                                            <td width="19%" align="left" valign="middle" bgcolor="#AFB7BE">Code</td>
+                                                                                                            <td width="66%" align="left" valign="middle" bgcolor="#AFB7BE">Subject</td>
+                                                                                                            <td width="15%" align="left" valign="middle" bgcolor="#AFB7BE">Grade</td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">101</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">BANGLA</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="bangla" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">107</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">ENGLISH</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="english" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">109</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">MATHEMATICS</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="math" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">150</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND GLOBAL STUDIES</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="bangladesh_history" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">HINDU RELIGION AND MORAL EDUCATION</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="hindu" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">136</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">PHYSICS</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="physics" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">137</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">CHEMISTRY</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="chemistry" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">138</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">BIOLOGY</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="biology" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">154</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">INFORMATION AND COMMUNICATION TECHNOLOGY</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="ict" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">134</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">AGRICULTURE STUDIES</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="agriculture" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">147</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE">PHYSICAL EDUCATION, HEALTH & SPORTS</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#EEEEEE"><input id="phisical" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">156</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4">CAREER EDUCATION</td>
+                                                                                                            <td align="left" valign="middle" bgcolor="#DEE1E4"><input id="carrier" type="text" placeholder="Enter Grade"></td>
+                                                                                                            </tr>
+                                                                                                            </tbody>
+                                                                                                            </table>
+                                                                                                            </td>
+                                                                                                            --->
                                   </tr>
                                 </form>
                               </tbody>
@@ -264,7 +268,7 @@ if (isset($session['user_role'])) {
         </tr>
       </tbody>
     </table>
-<input type="text" id="hidden-id" hidden="true" value="<?php echo $id ?>">
+    <input type="text" id="hidden-id" hidden="true" value="<?php echo $id ?>">
     <script src="http://cdn.jsdelivr.net/npm/eruda-dom@2.0.0"> < div id = "erudakaalgroup516" style = "all: initial;" > < div class = "__chobitsu-hide__ luna-dom-highlighter luna-dom-highlighter-platform-mac" > < canvas id = "canvas" class = "luna-dom-highlighter-fill" width = "980" height = "1818" style = "width: 980px; height: 1818px;" > < div >
     </script>
     <script src="js/addSheet.js"></script>

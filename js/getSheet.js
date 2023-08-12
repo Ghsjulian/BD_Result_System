@@ -2,27 +2,30 @@ function ghs__(tag) {
   return document.querySelector(tag);
 }
 
-
-var html, religion;
-var tag = ghs__("#sheet_info");
-var formData = new FormData();
-formData.append("ein", "8005");
-formData.append("roll", "123");
-formData.append("regi", "161646");
-formData.append("password", "123456");
-
-fetch(`http://localhost:8000/Bd_Result/API/server/functions/getSheet.php`, {
-  method: "POST",
-  body: formData,
-})
-  .then((res) => {
-    return res.json();
+function getSheet() {
+  var einn = ghs__("#ein").value;
+  var passs = ghs__("#pass").value;
+  var rolll = ghs__("#roll").value;
+  var regg = ghs__("#reg").value;
+  var html, religion;
+  var tag = ghs__("#sheet_info");
+  var formData = new FormData();
+  formData.append("ein", einn);
+  formData.append("roll", rolll);
+  formData.append("regi", regg);
+  formData.append("password", passs);
+  fetch(`http://localhost:8000/Bd_Result/API/server/functions/getSheet.php`, {
+    method: "POST",
+    body: formData,
   })
-  .then((data) => {
-    ghs__("#head").innerHTML = `
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      ghs__("#head").innerHTML = `
 <td height="50" align="center" valign="middle" class="black16bold" id="exam_name">${data.info.exam_name}  ${data.info.year}</td>
 `;
-    html = `
+      html = `
     <td align="center" valign="middle">
 <table width="100%" border="0" cellpadding="3" cellspacing="1" class="black12">
 <tbody>
@@ -64,32 +67,32 @@ fetch(`http://localhost:8000/Bd_Result/API/server/functions/getSheet.php`, {
 </table>
 </td>
     `;
-    tag.innerHTML = html;
+      tag.innerHTML = html;
 
-    if (data.student.religion === "Hinduism") {
-      religion = `
+      if (data.student.religion === "Hinduism") {
+        religion = `
   <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">HINDU RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">${data.subject.hindu_edu}</td>
   `;
-    } else if (data.student.religion === "Islam") {
-      religion = `
+      } else if (data.student.religion === "Islam") {
+        religion = `
   <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">ISLAM RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">${data.subject.islam_edu}</td>
   `;
-    } else if (data.student.religion === "Christian") {
-      religion = `
+      } else if (data.student.religion === "Christian") {
+        religion = `
   <td align="left" valign="middle" bgcolor="#EEEEEE">112</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">Christian RELIGION AND MORAL EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">${data.subject.christian_edu}</td>
   `;
-    }
+      }
 
-    //   console.log(data);
+      //   console.log(data);
 
-    if (data.info.group === "Science") {
-      ghs__("#grade").innerHTML = `
+      if (data.info.group === "Science") {
+        ghs__("#grade").innerHTML = `
 <tr class="black12bold">
 <td width="19%" align="left" valign="middle" bgcolor="#AFB7BE">Code</td>
 <td width="66%" align="left" valign="middle" bgcolor="#AFB7BE">Subject</td>
@@ -153,9 +156,9 @@ ${religion}
 <td align="left" valign="middle" bgcolor="#DEE1E4">CAREER EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.carrier_edu}</td>
 </tr>`;
-      console.log(data.subject);
-    } else if (data.info.group === "Humanity") {
-      ghs__("#grade").innerHTML = `
+        console.log(data.subject);
+      } else if (data.info.group === "Humanity") {
+        ghs__("#grade").innerHTML = `
 <tr class="black12bold">
 <td width="19%" align="left" valign="middle" bgcolor="#AFB7BE">Code</td>
 <td width="66%" align="left" valign="middle" bgcolor="#AFB7BE">Subject</td>
@@ -219,8 +222,8 @@ ${religion}
 <td align="left" valign="middle" bgcolor="#DEE1E4">CAREER EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.carrier_edu}</td>
 </tr>`;
-    } else if (data.info.group === "Commerce") {
-      ghs__("#grade").innerHTML = `
+      } else if (data.info.group === "Commerce") {
+        ghs__("#grade").innerHTML = `
 <tr class="black12bold">
 <td width="19%" align="left" valign="middle" bgcolor="#AFB7BE">Code</td>
 <td width="66%" align="left" valign="middle" bgcolor="#AFB7BE">Subject</td>
@@ -284,5 +287,7 @@ ${religion}
 <td align="left" valign="middle" bgcolor="#DEE1E4">CAREER EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.carrier_edu}</td>
 </tr>`;
-    }
-  });
+      }
+    });
+}
+getSheet();

@@ -9,7 +9,19 @@
       rel="stylesheet"
       type="text/css"
     />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/sheet.css" rel="stylesheet" type="text/css">
 
+  <style type="text/css">
+    .eruda-search-highlight-block {
+      display: inline
+    }
+
+    .eruda-search-highlight-block .eruda-keyword {
+      background: #332a00;
+      color: #ffcb6b
+    }
+  </style>
     <meta
       content="width=device-width, initial-scale=1, maximum-scale=1"
       name="viewport"
