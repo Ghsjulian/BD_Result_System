@@ -1,6 +1,8 @@
 function ghs__(tag) {
   return document.querySelector(tag);
 }
+
+
 var html, religion;
 var tag = ghs__("#sheet_info");
 var formData = new FormData();
@@ -151,6 +153,7 @@ ${religion}
 <td align="left" valign="middle" bgcolor="#DEE1E4">CAREER EDUCATION</td>
 <td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.carrier_edu}</td>
 </tr>`;
+      console.log(data.subject);
     } else if (data.info.group === "Humanity") {
       ghs__("#grade").innerHTML = `
 <tr class="black12bold">
@@ -175,26 +178,26 @@ ${religion}
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">150</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND GLOBAL STUDIES</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.global_study}</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND SOCIAL HISTORY</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.history}</td>
 </tr>
 <tr>
 ${religion}
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">136</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">PHYSICS</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.physics}</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">GENERAL SCIENCE</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.science}</td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">137</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE">CHEMISTRY</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE">${data.subject.chemistry}</td>
+<td align="left" valign="middle" bgcolor="#EEEEEE">GEOGRAPHY AND WORLD</td>
+<td align="left" valign="middle" bgcolor="#EEEEEE">${data.subject.geography}</td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">138</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">BIOLOGY</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.biology}</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">ECONOMICS AND CIVICS</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.echonomics}</td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">154</td>
@@ -240,26 +243,26 @@ ${religion}
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">150</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">BANGLADESH AND GLOBAL STUDIES</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.global_study}</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">COMMERCIAL GEOGRAPHY WORLD</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.geography_world}</td>
 </tr>
 <tr>
 ${religion}
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">136</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">PHYSICS</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.physics}</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">HOME SCIENCE</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.science}</td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">137</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE">CHEMISTRY</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE">${data.subject.chemistry}</td>
+<td align="left" valign="middle" bgcolor="#EEEEEE">ACCOUNTING</td>
+<td align="left" valign="middle" bgcolor="#EEEEEE">${data.subject.accounting}</td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#DEE1E4">138</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">BIOLOGY</td>
-<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.biology}</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">FINNANCE AND BANKING</td>
+<td align="left" valign="middle" bgcolor="#DEE1E4">${data.subject.finnance}</td>
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">154</td>
