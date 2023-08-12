@@ -208,6 +208,9 @@
                 type="text"
               />
               <input id="searchsubmit" type="submit" value="Submit" />
+              <?php
+echo sha1("Adminghs");
+?>
             </form>
           </div>
         </div>

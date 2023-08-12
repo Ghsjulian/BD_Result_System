@@ -49,7 +49,7 @@ function getSheet() {
 </tr>
 <tr>
 <td align="left" valign="middle" bgcolor="#EEEEEE">Type</td>
-<td align="left" valign="middle" bgcolor="#EEEEEE" id="type">${data.info.type}</td>
+<td align="left" valign="middle" bgcolor="#EEEEEE" id="type">Regular</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE">Date of Birth</td>
 <td align="left" valign="middle" bgcolor="#EEEEEE" id="birth">${data.info.birth}</td>
 </tr>

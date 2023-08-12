@@ -58,6 +58,7 @@ ________________________________*/
           error.classList.remove("_error");
           error.classList.add("_success");
           error.textContent = data.message;
+ // window.location.href= ""
           form.reset();
         });
     }
